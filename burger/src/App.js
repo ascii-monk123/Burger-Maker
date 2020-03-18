@@ -1,7 +1,12 @@
-import React from 'react';
-class App extends React.Component {
+import React, { Component } from 'react';
+import Layout from './Components/Layout/Layout';
+class App extends Component {
   render() {
-    return <p>Hello World</p>;
+    return (
+      <Layout>
+        <p>Test is working</p>
+      </Layout>
+    );
   }
 }
 export default App;
