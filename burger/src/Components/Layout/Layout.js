@@ -1,9 +1,10 @@
 import React from 'react';
 import Aux from '../../HOC/Auxillary';
+import Classes from './Layout.module.css';
 const layout = props => (
   <Aux>
     <div>Toolbar,Sidedrawer,Backdrawer</div>
-    <main>{props.children}</main>
+    <main class={Classes.Content}>{props.children}</main>
   </Aux>
 );
 
