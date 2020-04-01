@@ -9,6 +9,7 @@ const burger = props => {
       return <BurgerIngredients key={igKey + i} type={igKey} />;
     });
   });
+  console.log(transformedIngredients);
   return (
     <div className={classes.Burger}>
       <BurgerIngredients type="bread-top" />
