@@ -6,8 +6,13 @@ const buildControl = (props) => (
     <button className={Classes.More} onClick={props.added}>
       More
     </button>
-    <button className={Classes.Less}>Less</button>
+    <button
+      className={Classes.Less}
+      onClick={props.removed}
+      disabled={props.disabled}
+    >
+      Less
+    </button>
   </div>
 );
-
 export default buildControl;
