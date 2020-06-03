@@ -37,6 +37,12 @@ class BurgerBuilder extends Component {
     //arrow methods contain the context of thos
   };
 
+  purchaseCancelHandler = () => {
+    this.setState({
+      purchasing: false,
+    });
+  };
+
   updatePurchaseState(ingredients) {
     const ingredient = { ...ingredients };
     const sum = Object.keys(ingredient)
@@ -92,7 +98,10 @@ class BurgerBuilder extends Component {
     }
     return (
       <Aux>
-        <Modal show={this.state.purchasing}>
+        <Modal
+          show={this.state.purchasing}
+          modalClosed={this.purchaseCancelHandler}
+        >
           <OrderSummary ingredients={this.state.ingredients} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
