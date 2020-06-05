@@ -24,3 +24,29 @@
   background-color: #8f5c2c;
   color: #fff;
 }
+
+@media (max-width: 500px) {
+  .NavigationItem {
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+  }
+
+  .NavigationItem a {
+    color: #8f5c2c;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    transition: all 0.5s;
+  }
+  .NavigationItem a:nth-of-type(1) {
+    margin-right: 2px;
+  }
+  .NavigationItem a:hover,
+  .NavigationItem a:active,
+  .NavigationItem a.active {
+    color: #40a4cb;
+  }
+  
+}
