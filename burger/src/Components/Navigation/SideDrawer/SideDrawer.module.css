@@ -14,13 +14,6 @@
 .Logo {
   height: 11%;
 }
-
-@media (min-width: 500px) {
-  .SideDrawer {
-    display: none;
-  }
-}
-
 .Open {
   transform: translateX(0);
 }
