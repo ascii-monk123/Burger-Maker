@@ -8,7 +8,10 @@ class Modal extends Component {
     console.log('Shoud modal update');
     //here we made sure that we dont unnecessarily update the ordersummary and shall only update it when the modal is to be shown and order summary will not be updated all the times
     //Here the order summary does not rerender cause the modal is the wrapping element which is controlling the behavior and isn't letting it update without any reason.
-    return nextProps.show !== this.props.show;
+    return (
+      nextProps.show !== this.props.show ||
+      nextProps.children !== this.props.children
+    );
   }
   componentWillUpdate() {
     //this is not required here
