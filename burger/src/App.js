@@ -11,3 +11,17 @@ class App extends Component {
   }
 }
 export default App;
+
+/**
+ * This below is just for testing purposes
+ */
+// state = {
+//   show: true,
+// };
+// componentDidMount() {
+//   setTimeout(() => {
+//     this.setState({
+//       show: false,
+//     });
+//   }, 5000);
+// }//just for testing purposes
