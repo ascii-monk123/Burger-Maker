@@ -59,34 +59,44 @@ class BurgerBuilder extends Component {
   purchaseContinueHandler = () => {
     this.setState({ loading: true });
     //alert('U continued');
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: 'Aahan Singh',
-        address: {
-          street: 'Test Street',
-          zipCode: '11456',
-          country: 'India',
-        },
-        email: 'test1234@hotmail.com',
-      },
-      deliveryMethod: 'fastest',
-    };
-    axios
-      .post('/orders.json', order)
-      .then((response) => {
-        this.setState({
-          loading: false,
-          purchasing: false,
-        });
-      })
-      .catch((err) => {
-        this.setState({
-          loading: false,
-          purchasing: false,
-        });
-      });
+    // const order = {
+    //   ingredients: this.state.ingredients,
+    //   price: this.state.totalPrice,
+    //   customer: {
+    //     name: 'Aahan Singh',
+    //     address: {
+    //       street: 'Test Street',
+    //       zipCode: '11456',
+    //       country: 'India',
+    //     },
+    //     email: 'test1234@hotmail.com',
+    //   },
+    //   deliveryMethod: 'fastest',
+    // };
+    // axios
+    //   .post('/orders.json', order)
+    //   .then((response) => {
+    //     this.setState({
+    //       loading: false,
+    //       purchasing: false,
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     this.setState({
+    //       loading: false,
+    //       purchasing: false,
+    //     });
+    //   });
+const queryParams=[];
+ for(let i in this.state.ingredients){
+   queryParams.push(encodeURIComponent(i)+'='+encodeURIComponent(this.state.ingredients[i]));//encode to url strings
+ }
+ const queryString=queryParams.join('&');
+    this.props.history.push({
+      pathname:'/Checkout',
+      search:'?'+queryString
+
+    });
   };
 
   updatePurchaseState(ingredients) {
