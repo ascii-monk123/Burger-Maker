@@ -50,23 +50,25 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
-    this.setState({ loading: true });
-    //alert('U continued');
+    //this code has been removed and replaced with redux
+    // this.setState({ loading: true });
+    // //alert('U continued');
 
-    const queryParams = [];
-    for (let i in this.state.ingredients) {
-      queryParams.push(
-        encodeURIComponent(i) +
-          '=' +
-          encodeURIComponent(this.state.ingredients[i])
-      ); //encode to url strings
-    }
-    queryParams.push('price=' + this.state.totalPrice);
-    const queryString = queryParams.join('&');
-    this.props.history.push({
-      pathname: '/Checkout',
-      search: '?' + queryString,
-    });
+    // const queryParams = [];
+    // for (let i in this.state.ingredients) {
+    //   queryParams.push(
+    //     encodeURIComponent(i) +
+    //       '=' +
+    //       encodeURIComponent(this.state.ingredients[i])
+    //   ); //encode to url strings
+    // }
+    // queryParams.push('price=' + this.state.totalPrice);
+    // const queryString = queryParams.join('&');
+    // this.props.history.push({
+    //   pathname: '/Checkout',
+    //   search: '?' + queryString,
+    // });
+    this.props.history.push('/Checkout');
   };
 
   updatePurchaseState(ingredients) {
