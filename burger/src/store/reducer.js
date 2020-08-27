@@ -9,6 +9,12 @@ const initialState = {
   },
   totalPrice: 4,
 };
+const INGREDIENT_PRICES = {
+  salad: 0.5,
+  cheese: 0.4,
+  meat: 0.3,
+  bacon: 0.7,
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -20,6 +26,7 @@ const reducer = (state = initialState, action) => {
           //this syntax is used to extract the name of the payload we receive and use it as a propertyname of the particular ingredient which is changed and is changed in state.ingredients
           [action.ingredientName]: state.ingredients[action.ingredientName] + 1,
         },
+        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
       };
 
     case actionTypes.REMOVE_INGREDIENT:
@@ -30,6 +37,7 @@ const reducer = (state = initialState, action) => {
           //this syntax is used to extract the name of the payload we receive and use it as a propertyname of the particular ingredient which is changed and is changed in state.ingredients
           [action.ingredientName]: state.ingredients[action.ingredientName] - 1,
         },
+        totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
       };
     default:
       return state;
