@@ -6,6 +6,7 @@ import Spinner from "../../../Components/UI/Spinner/Spinner";
 import Input from "../../../Components/UI/Input/Input";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
+import axios from "../../../axios-orders";
 class ContactData extends Component {
   state = {
     orderForm: {
@@ -194,4 +195,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactData);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withErrorHandler(ContactData, axios));
