@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Button from "../../../Components/UI/Button/Button";
 import Classes from "./ContactData.module.css";
-import axios from "../../../axios-orders";
+import withErrorHandler from "../../../HOC/withErrorHandler/withErrorHandler";
 import Spinner from "../../../Components/UI/Spinner/Spinner";
 import Input from "../../../Components/UI/Input/Input";
 import { connect } from "react-redux";
+import * as actions from "../../../store/actions/index";
 class ContactData extends Component {
   state = {
     orderForm: {
@@ -119,6 +120,7 @@ class ContactData extends Component {
       price: this.props.price,
       orderData: formData,
     };
+    this.props.onOrderBurger(order);
   };
   inputChangedHandler = (event, inputIdentifier) => {
     const updatedOrderForm = { ...this.state.orderForm };
@@ -186,4 +188,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ContactData);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onOrderBurger: (orderData) =>
+      dispatch(actions.purchaseBurgerStart(orderData)),
+  };
+};
+
+export default connect(mapStateToProps)(withErrorHandler(ContactData));
