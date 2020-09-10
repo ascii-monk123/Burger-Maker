@@ -7,6 +7,7 @@ import Input from "../../../Components/UI/Input/Input";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
 import axios from "../../../axios-orders";
+
 class ContactData extends Component {
   state = {
     orderForm: {
@@ -183,9 +184,9 @@ class ContactData extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    ings: state.ingredients,
-    price: state.totalPrice,
-    loading: state.loading,
+    ings: state.burgerBuilder.ingredients,
+    price: state.burgerBuilder.totalPrice,
+    loading: state.order.loading,
   };
 };
 
