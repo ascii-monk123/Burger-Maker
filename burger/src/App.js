@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import Layout from './Components/Layout/Layout';
-import BurgerBuilder from './Containers/BurgerBuilder';
-import Checkout from './Containers/Checkout/Checkout';
-import { Route, Switch } from 'react-router-dom';
-import Orders from './Containers/Orders/Orders';
+import React, { Component } from "react";
+import Layout from "./Components/Layout/Layout";
+import BurgerBuilder from "./Containers/BurgerBuilder";
+import Checkout from "./Containers/Checkout/Checkout";
+import { Route, Switch } from "react-router-dom";
+import Orders from "./Containers/Orders/Orders";
+import Auth from "./Containers/Auth/Auth";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <Switch>
           <Route path="/Checkout" component={Checkout} />
           <Route path="/orders" component={Orders} />
+          <Route path="/auth" component={Auth} />
           <Route path="/" component={BurgerBuilder} />
         </Switch>
       </Layout>
